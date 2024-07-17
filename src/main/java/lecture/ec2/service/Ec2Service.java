@@ -15,25 +15,30 @@ import java.io.IOException;
 @Service
 public class Ec2Service {
 
-    private final  Ec2Client ec2;
-    private final String instanceId;
+    private Ec2Client ec2;
+    private String instanceId;
 
-    public Ec2Service() throws IOException {
-        String region = Ec2Util.getRegion();
-        this.ec2 = Ec2Client.builder()
-                .region(Region.of(region))
-                .build();
-        instanceId = Ec2Util.getInstanceId();
+    public Ec2Service() {
+        try {
+            String region = Ec2Util.getRegion();
+            this.ec2 = Ec2Client.builder()
+                    .region(Region.of(region))
+                    .build();
+            this.instanceId = Ec2Util.getInstanceId();
+        } catch (IOException e) {
+            System.err.println("Failed to initialize Ec2MetadataService: " + e.getMessage());
+            this.instanceId = "unknown";
+        }
     }
 
-
-    public String getInstanceMetaData(){
+    public String getInstanceMetadata() {
         DescribeInstancesRequest request = DescribeInstancesRequest.builder()
                 .instanceIds(instanceId)
                 .build();
 
         DescribeInstancesResponse response = ec2.describeInstances(request);
         Instance instance = response.reservations().get(0).instances().get(0);
+
 
         return instance.toString();
     }

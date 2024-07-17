@@ -17,7 +17,7 @@ public class UserController {
 
     @GetMapping("/ec2/metadata")
     public String getInstanceMetaData(){
-        return ec2Service.getInstanceMetaData();
+        return ec2Service.getInstanceMetadata();
     }
 
 
