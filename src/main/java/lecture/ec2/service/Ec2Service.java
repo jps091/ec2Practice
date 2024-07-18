@@ -1,3 +1,4 @@
+/*
 package lecture.ec2.service;
 
 import lecture.ec2.utils.Ec2Util;
@@ -43,3 +44,4 @@ public class Ec2Service {
         return instance.toString();
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package lecture.ec2.utils;
 
 
@@ -54,3 +55,4 @@ public class Ec2Util {
         return availabilityZone.substring(0, availabilityZone.length() - 1);
     }
 }
+*/
