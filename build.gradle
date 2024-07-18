@@ -25,6 +25,8 @@ dependencies {
 	implementation 'software.amazon.awssdk:ec2:2.17.89'
 	implementation 'software.amazon.awssdk:core:2.17.89'
 	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
+
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 }
 
 tasks.named('test') {

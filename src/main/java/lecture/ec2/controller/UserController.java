@@ -19,9 +19,15 @@ public class UserController {
         return ec2Service.getInstanceMetadata();
     }*/
 
+    @GetMapping("/")
+    public String Call(
+    ){
+        return "ec2 ";
+    }
 
-    @GetMapping("/user/name")
-    public String userCall(
+
+    @GetMapping("/name")
+    public String nameCall(
             @RequestParam String name
     ){
         User user = new User(name);
